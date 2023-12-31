@@ -1,16 +1,17 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 # Create your views here.
 
 def index(request):
     context: dict[str, str] = {
-        'title': 'Main',
-        'content': 'Главная страница магазина',
-        'list': ['first', 'second'],
-        'dict': {'first': 1},
-        'is_authenticated': False,
+        'title': 'Home  - Главная',
+        'content': 'Магазин мебели HOME',
     }
     return render(request, 'main/index.html', context)
 
 def about(request):
-    return HttpResponse('About page')
+    context: dict[str, str] = {
+        'title': 'Home - О нас',
+        'content': 'О нас',
+        'textOnPage': 'Кокрейн - это международное сообщество со штаб-квартирой в Великобритании, зарегистрированное как некоммерческая организация, являющееся членом Национального совета добровольных организаций Великобритании.',
+    }
+    return render(request, 'main/about.html', context)
