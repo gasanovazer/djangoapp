@@ -7,11 +7,18 @@ def catalog(request):
 
     goods = Products.objects.all()
     
-    context: dict[str, str] = {
+    context = {
         'title': 'Home- Каталог',
         'goods': goods,
     }
     return render(request, 'goods/catalog.html', context)
 
-def product(request):
-    return render(request, 'goods/product.html')
+def product(request, product_sluf):
+
+    product = Products.objects.get(sluf=product_sluf)
+
+    context={
+        'product': product,
+    } 
+
+    return render(request, 'goods/product.html', context=context)
