@@ -37,10 +37,10 @@ def catalog(request, category_slug=None):
 
 
 def product(request, product_sluf):
-    product = Products.objects.get(sluf=product_sluf)
+    products = Products.objects.get(sluf=product_sluf)
 
     context = {
-        "product": product,
+        "product": products,
     }
 
     return render(request, "goods/product.html", context=context)
